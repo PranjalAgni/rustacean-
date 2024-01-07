@@ -130,6 +130,15 @@ fn match_with_tuples() {
     }
 }
 
+fn closures_in_rust() {
+    let outer_var = 42;
+    let closures_anotated = |i: i32| -> i32 { i + outer_var };
+    let closures_inferred = |i| i + outer_var;
+    // Call the closures now
+    println!("Calling the anotated closures {}", closures_anotated(32));
+    println!("Calling the inferred closure {}", closures_inferred(32));
+}
+
 fn main() {
     let x = 100;
     let y = 200;
@@ -151,4 +160,5 @@ fn main() {
     for_and_iterators();
     match_in_great_detail();
     match_with_tuples();
+    closures_in_rust();
 }
