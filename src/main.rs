@@ -139,6 +139,28 @@ fn closures_in_rust() {
     println!("Calling the inferred closure {}", closures_inferred(32));
 }
 
+fn strings_in_rust() {
+    let panagram = "the quick brown fox jumps over the lazy dog";
+    println!("Panagram: {}", panagram);
+    println!("Words in reverse");
+    for word in panagram.split_whitespace().rev() {
+        println!("> {}", word);
+    }
+
+    // Copy chars into a vector, sort and remove duplicates
+    let mut chars: Vec<char> = panagram.to_uppercase().chars().collect();
+    chars.sort();
+    chars.dedup();
+    println!("Let's see chars {:?}", chars);
+    let long_string = "String literals
+    can span multiple lines.
+    The linebreak and indentation here ->\
+    <- can be escaped too!";
+    println!("{}", long_string);
+    let longer_delimiter = r###"A string with "# in it. And even "##!"###;
+    println!("{}", longer_delimiter);
+}
+
 fn main() {
     let x = 100;
     let y = 200;
@@ -161,4 +183,5 @@ fn main() {
     match_in_great_detail();
     match_with_tuples();
     closures_in_rust();
+    strings_in_rust();
 }
